@@ -15,7 +15,7 @@ namespace Mozart_H1_Lyd
     {
         public Form1()
         {
-            //MINUET
+           //MINUET
             string[] filesM = new string[16];/*erklærer et string array med plads til minuetfilerne.
                                               * Der kan kun være 16 filer pr. gennemløb af forløkken*/
 
@@ -45,16 +45,9 @@ namespace Mozart_H1_Lyd
                 //Trækker 2 fra da det laveste terningkast man kan få er 2 men index starter på 0
             
             }
-            SoundPlayer sp = new SoundPlayer();
-            foreach (string musicelementM in filesM)//Gør som der stod i opgave oplægget
-            {
-
-                sp.SoundLocation = musicelementM;
-                sp.Load();
-                sp.PlaySync();
-
-            }
-
+            
+            Afspil(filesM);
+           
             //TRIO
             string[] filesT = new string[16];//Der kan kun være 16 filer pr. gennemløb af forløkken
             int[,] trio = new int[6, 16]
@@ -75,7 +68,16 @@ namespace Mozart_H1_Lyd
                 filesT[i] = @"C:\Users\mari47jg\source\repos\Mozart H1 Lyd\Mozart H1 Lyd\Resources\T" + minuet[(terningekastT-1), (i)] + ".wav";
                 //Trækker en fra da laveste terningkast er 1 men index starter på 0
             }
-            foreach (string musicelementT in filesT)
+            Afspil(filesT);
+
+           
+        }
+        
+        //Opretter metode til musikafspilning
+        public static void Afspil(string[] arraynavn)
+        {
+            SoundPlayer sp = new SoundPlayer();
+            foreach (string musicelementT in arraynavn)
 
             {
 
@@ -86,8 +88,6 @@ namespace Mozart_H1_Lyd
                 sp.PlaySync();
 
             }
-
-           
         }
     }
 
